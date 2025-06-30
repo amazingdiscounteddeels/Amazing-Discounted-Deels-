@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Discounted Deels - Find the Best Deals Online</title>
+    <meta name="description" content="Discover top-rated products and great deals. We help you find the best products at the best prices.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <a href="products.html"></a>
+    <a href="about.html"></a>
+    <a href="contact.html"></a>
+    <a href="privacy.html"></a>
+    <style>
+            :root {
+            --primary-color: #2563eb; /* Royal Blue */
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b; /* Gold */
+            --text-color: #1f2937;
+            --light-text: #6b7280;
+            --bg-color: #ffffff;
+            --light-bg: #f9fafb;
+            --border-color: #e5e7eb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--bg-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: var(--light-bg);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Products Section */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .product-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-image {
+            /* height: 200px; */
+            background-color: var(--light-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .product-info p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .product-info .btn {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 60px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content h2 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+        }
+        
+        .trust-section {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .trust-section h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* Contact Form */
+        .contact-section {
+            padding: 60px 0;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Privacy Policy */
+        .privacy-section {
+            padding: 60px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .privacy-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .privacy-section h3 {
+            margin: 30px 0 15px;
+            color: var(--primary-color);
+        }
+        
+        .privacy-section p {
+            margin-bottom: 15px;
+        }
+        
+        .privacy-section ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            position: relative;
+            bottom: 0px;
+            background-color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--light-text);
+            width: 100%;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-color);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-150%);
+                transition: transform 0.3s;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Page-specific styles */
+        .page-hero {
+            background-color: var(--light-bg);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .page-hero p {
+            color: var(--light-text);
+        }
+        
+        /* Category filter */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .category-btn {
+            padding: 8px 15px;
+            background-color: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+    
+    /* Add these styles to your existing CSS */
+.product-description {
+    position: relative;
+    overflow: hidden;
+    line-height: 1.5;
+    max-height: 4.5em; /* Show 3 lines (1.5em per line) */
+    transition: max-height 0.3s ease;
+}
+
+.product-description.expanded {
+    max-height: 1000px; /* Large enough to show full content */
+}
+
+.see-more-btn {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--primary-color);
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 0.9rem;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.see-more-btn:hover {
+    text-decoration: underline;
+}
+
+/* Gradient for truncated text (optional) */
+.product-description:not(.expanded)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1.5em;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+}
+    
+    .product-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.share-btn {
+    background-color: #f0f0f0;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.share-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* Facebook button color */
+.share-btn.facebook {
+    background-color: #1877f2;
+    color: white;
+    border-color: #1877f2;
+}
+    /*demo*/
+    
+    .product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    max-width: 300px;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.affiliate-btn {
+    background-color: #2563eb;
+    color: white;
+}
+
+.share-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.share-btn:hover {
+    background-color: #e0e0e0;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Amazing Discounted<span>Deels</span></a>
+            <button class="mobile-menu-btn">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content (changes per page) -->
+    <main>
+        <!-- Home Page Content -->
+        <section class="hero">
+            <div class="container">
+                <h1>Discover Amazing Products at Great Prices</h1>
+                <p>We help you find the best deals on top-rated products from trusted brands. Save time and money with our curated selections.</p>
+                <a href="products.html" class="btn">Explore Products</a>
+            </div>
+        </section>
+
+        <section class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <!-- <div class="products-grid"> -->
+                <div class="product-card" data-product-id="123">
+    <div class="product-image">
+        <img src="table.jpg" alt="table">
+    </div>
+    <div class="product-info">
+        <h3>table</h3>
+        <p>Product description goes here...</p>
+        <div class="product-actions">
+            <!-- Affiliate Link (hidden in data attribute) -->
+            <a href="https://amzn.to/4jR8IMX" class="btn affiliate-btn" 
+               data-affiliate="https://seller.com/product?ref=YOURID123"
+               onclick="handleAffiliateClick(event, 123)">
+               View Deal
+            </a>
+            
+            <!-- Share Link (generates URL to your site) -->
+            <button class="share-btn" onclick="generateShareLink(123)">
+                Share Product
+            </button>
+        </div>
+    </div>
+</div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/coc.png" alt="Premium Wireless Headphones" alt="org">
+                    </div>
+                    <div class="product-info">
+                            <h3>Premium Wireless Headphones</h3>
+                        <div class="product-description">
+                            <p>Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.
+                            Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.
+                            Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.
+                            Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.</p>
+                        </div>
+                            <button class="see-more-btn">See More</button>
+                            <a href="#" class="btn">View Deal</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/han.jpg" alt="Premium Wireless Headphones" alt="coc">
+                    </div>
+                    <div class="product-info">
+                            <h3>Premium Wireless Headphones</h3>
+                        <div class="product-description">
+                            <p>Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.
+                            Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.
+                            Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.
+                            Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.</p>
+                        </div>
+                            <button class="see-more-btn">See More</button>
+                            <a href="#" class="btn">View Deal</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/wa.jpg" alt="Premium Wireless Headphones"" alt="wa">
+                    </div>
+                    <div class="product-info">
+                            <h3>Premium Wireless Headphones</h3>
+                        <div class="product-description">
+                            <p>Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.
+                            Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.
+                            Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.
+                            Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.</p>
+                        </div>
+                            <button class="see-more-btn">See More</button>
+                            <a href="#" class="btn">View Deal</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/IMG.jpg" alt="Premium Wireless Headphones">
+                    </div>
+                    <div class="product-info">
+                            <h3>Premium Wireless Headphones</h3>
+                        <div class="product-description">
+                            <p>Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.
+                            Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.
+                            Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.
+                            Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.</p>
+                        </div>
+                            <button class="see-more-btn">See More</button>
+                            <a href="#" class="btn">View Deal</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/table 2.jpg" alt="Premium Wireless Headphones">
+                    </div>
+                    <div class="product-info">
+                            <h3>Premium Wireless Headphones</h3>
+                        <div class="product-description">
+                            <p>Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.
+                            Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.
+                            Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.
+                            Experience crystal-clear sound with 30-hour battery life and noise cancellation technology. These headphones feature advanced Bluetooth 5.0 connectivity, built-in microphone for calls, and comfortable over-ear design perfect for long listening sessions. The adjustable headband and memory foam ear cushions provide all-day comfort.</p>
+                        </div>
+                            <button class="see-more-btn">See More</button>
+                            <a href="#" class="btn">View Deal</a>
+                    </div>
+                </div>
+            <!-- </div> -->
+        </section>
+
+        <section class="about-section">
+            <div class="container about-content">
+                <h2>Our Mission</h2>
+                <p>At Affiliate Hub, we're dedicated to helping you discover the best products at the best prices. Our team thoroughly researches and tests products to bring you only the highest quality options.</p>
+                <p>We partner with trusted retailers to provide you with convenient access to great deals while earning a small commission to support our work.</p>
+                
+                <div class="trust-section">
+                    <h3>Why Trust Us?</h3>
+                    <p>✓ Independent product research</p>
+                    <p>✓ Honest, unbiased recommendations</p>
+                    <p>✓ Only quality products from reputable brands</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer">
+            <h4>Disclaimer</h4>
+            <p>As amazon associate, I earn from qualifying purchases, I am not the sole owner of the product or images. Price and discount are subjected to change and may vary anytime.</p>
+            &copy; Amazing Discounted Deels. All rights reserved.
+        <!-- </div> -->
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    
+    
+    // Expandable product descriptions
+document.addEventListener('DOMContentLoaded', function() {
+    // Select all see more buttons
+    const seeMoreBtns = document.querySelectorAll('.see-more-btn');
+    
+    seeMoreBtns.forEach(btn => {
+        const description = btn.previousElementSibling;
+        
+        // Check if content is truncated
+        if (description.scrollHeight > description.clientHeight) {
+            btn.style.display = 'inline-block'; // Show button if content is long
+        } else {
+            btn.style.display = 'none'; // Hide button if content is short
+        }
+        
+        btn.addEventListener('click', () => {
+            description.classList.toggle('expanded');
+            
+            if (description.classList.contains('expanded')) {
+                btn.textContent = 'See Less';
+            } else {
+                btn.textContent = 'See More';
+            }
+        });
+    });
+});
+        
+        
+        // demo
+    // Handle affiliate clicks (only works from your site)
+function handleAffiliateClick(event, productId) {
+    event.preventDefault();
+    
+    // Get affiliate link from data attribute
+    const affiliateLink = event.target.getAttribute('data-affiliate');
+    
+    // Track the click (you can add analytics here)
+    console.log(`Affiliate click tracked for product ${productId}`);
+    
+    // Redirect to affiliate URL
+    window.open(affiliateLink, '_blank');
+}
+
+// Generate unique shareable links
+function generateShareLink(productId) {
+    // Create unique URL for your product page
+    const shareUrl = `${window.location.origin}/product.html?id=${productId}`;
+    
+    // Copy to clipboard
+    navigator.clipboard.writeText(shareUrl).then(() => {
+        alert('Product link copied to clipboard! Share this URL with others.');
+    });
+    
+    // Alternative: Open share dialog
+    // const productName = document.querySelector(`[data-product-id="${productId}"] h3`).textContent;
+    // window.open(`https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(productName)}`, '_blank');
+}
+    
+    </script>
+</body>
+</html>
