@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Same head content as index.html -->
+    <title>About Us - Amazing Discounted Deels</title>
+    <a href="index.html"></a>
+    <a href="products.html"></a>
+    <a href="contact.html"></a>
+    <a href="privacy.html"></a>
+    <style>
+            :root {
+            --primary-color: #2563eb; /* Royal Blue */
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b; /* Gold */
+            --text-color: #1f2937;
+            --light-text: #6b7280;
+            --bg-color: #ffffff;
+            --light-bg: #f9fafb;
+            --border-color: #e5e7eb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--bg-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: var(--light-bg);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Products Section */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .product-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-image {
+            height: 200px;
+            background-color: var(--light-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .product-info p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .product-info .btn {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+
+.product-description {
+    position: relative;
+    overflow: hidden;
+    line-height: 1.5;
+    max-height: 4.5em; /* Show 3 lines (1.5em per line) */
+    transition: max-height 0.3s ease;
+}
+
+.product-description.expanded {
+    max-height: 1000px; /* Large enough to show full content */
+}
+
+.see-more-btn {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--primary-color);
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 0.9rem;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.see-more-btn:hover {
+    text-decoration: underline;
+}
+
+/* Gradient for truncated text (optional) */
+.product-description:not(.expanded)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1.5em;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+}
+        
+        /* About Section */
+        .about-section {
+            padding: 60px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content h2 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+        }
+        
+        .trust-section {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .trust-section h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* Contact Form */
+        .contact-section {
+            padding: 60px 0;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Privacy Policy */
+        .privacy-section {
+            padding: 60px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .privacy-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .privacy-section h3 {
+            margin: 30px 0 15px;
+            color: var(--primary-color);
+        }
+        
+        .privacy-section p {
+            margin-bottom: 15px;
+        }
+        
+        .privacy-section ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            position: relative;
+            bottom: 0px;
+            background-color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--light-text);
+            width: 100%;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-color);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-150%);
+                transition: transform 0.3s;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Page-specific styles */
+        .page-hero {
+            background-color: var(--light-bg);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .page-hero p {
+            color: var(--light-text);
+        }
+        
+        /* Category filter */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .category-btn {
+            padding: 8px 15px;
+            background-color: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Amazing Discounted<span>Deels</span></a>
+            <button class="mobile-menu-btn">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Same header as index.html -->
+    
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>About Us</h1>
+                <p>Learn more about our mission and values</p>
+            </div>
+        </section>
+        
+        <section class="about-section">
+            <div class="container about-content">
+                <h2>Who We Are</h2>
+                <p>Affiliate Hub was founded in 2025 with a simple goal: to help consumers find the best products at the best prices while saving them time and effort in their shopping journey.</p>
+                
+                <h2>What We Do</h2>
+                <p>We thoroughly research products across various categories, evaluating factors like quality, value, customer reviews, and brand reputation. Our team then curates selections of the top products to present to our audience.</p>
+                
+                <p>When you purchase through our affiliate links, we earn a small commission at no extra cost to you. This supports our work and allows us to continue providing valuable recommendations.</p>
+                
+                <div class="trust-section">
+                    <h3>Our Promise to You</h3>
+                    <p>✓ We only recommend products we genuinely believe in</p>
+                    <p>✓ We maintain complete editorial independence</p>
+                    <p>✓ We're transparent about our affiliate relationships</p>
+                    <p>✓ We prioritize products with strong customer satisfaction</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Same footer as index.html -->
+    
+    <!-- Footer -->
+<footer>
+    <div class="footer">
+        <h4>Disclaimer</h4>
+        <p>As amazon associate, I earn from qualifying purchases, I am not the sole owner of the product or images. Price and discount are subjected to change and may vary anytime.</p>
+        &copy; Amazing Discounted Deels. All rights reserved.
+    </div>
+</footer>
+    
+    <script>
+    // موبائل مینو ٹوگل فنکشن
+    function setupMobileMenu() {
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        if (mobileMenuBtn && nav) {
+            mobileMenuBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+            
+            // مینو بند کرنے کے لیے لنکس پر کلک
+            const navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('active');
+                });
+            });
+        }
+    }
+
+    // دستاویز تیار ہونے پر تمام فنکشنز کو کال کریں
+    document.addEventListener('DOMContentLoaded', function() {
+        setupMobileMenu();
+        
+        // دیگر فنکشنز جو آپ کے صفحے کے لیے مخصوص ہیں
+        // مثلاً ہوم پیج کے لیے:
+        if (document.querySelector('.category-filter')) {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const category = btn.dataset.category;
+                    
+                    productCards.forEach(card => {
+                        if (category === 'all') {
+                            card.classList.remove('hidden');
+                        } else {
+                            const cardCategories = card.dataset.categories.split(' ');
+                            if (cardCategories.includes(category)) {
+                                card.classList.remove('hidden');
+                            } else {
+                                card.classList.add('hidden');
+                            }
+                        }
+                    });
+                });
+            });
+        }
+    });
+</script>
+</body>
+</html>
