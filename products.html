@@ -1072,7 +1072,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const affiliateLink = event.target.getAttribute('data-affiliate');
     
     // Track the click (you can add analytics here)
-    console.log(`Affiliate click tracked for products ${productId}`);
+    console.log(`Affiliate click tracked for product ${productId}`);
     
     // Redirect to affiliate URL
     window.open(affiliateLink, '_blank');
@@ -1081,7 +1081,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Generate unique shareable links
 function generateShareLink(productId) {
     // Create unique URL for your product page
-    const shareUrl = `${window.location.origin}/products.html?id=${productId}`;
+    const shareUrl = `${window.location.origin}/product.html?id=${productId}`;
     
     // Copy to clipboard
     navigator.clipboard.writeText(shareUrl).then(() => {
