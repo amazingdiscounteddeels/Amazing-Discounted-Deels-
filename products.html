@@ -1081,7 +1081,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Generate unique shareable links
 function generateShareLink(productId) {
     // Create unique URL for your product page
-    const shareUrl = `${window.location.origin}/product.html?id=${productId}`;
+    const shareUrl = `${window.location.origin}/products.html?id=${productId}`;
     
     // Copy to clipboard
     navigator.clipboard.writeText(shareUrl).then(() => {
